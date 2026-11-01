@@ -1,0 +1,16 @@
+.checkout-page { padding: var(--space-5) 0 var(--space-7); }
+.checkout-page h1 { margin-bottom: var(--space-4); }
+.checkout-page__layout { display: grid; grid-template-columns: 1fr 320px; gap: var(--space-5); align-items: start; }
+.checkout-section { padding: var(--space-4); margin-bottom: var(--space-4); }
+.checkout-section h3 { margin-bottom: var(--space-3); }
+.checkout-address { display: flex; gap: var(--space-2); padding: var(--space-3); border: 1px solid var(--color-line); border-radius: var(--radius-md); margin-bottom: var(--space-2); cursor: pointer; }
+.checkout-address p { margin: 0.2rem 0; color: var(--color-ink-soft); font-size: var(--text-sm); }
+.checkout-address__label { font-size: var(--text-xs); color: var(--color-gold); text-transform: uppercase; }
+.checkout-address-form { margin-top: var(--space-3); }
+.checkout-address-form__row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-2); }
+.checkout-payment-option { display: flex; align-items: center; gap: var(--space-2); padding: 0.6rem 0; border-bottom: 1px solid var(--color-line); cursor: pointer; }
+
+@media (max-width: 860px) {
+  .checkout-page__layout { grid-template-columns: 1fr; }
+  .checkout-address-form__row { grid-template-columns: 1fr; }
+}

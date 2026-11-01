@@ -1,0 +1,65 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: ecommerce-backend
+
+  data:
+    mongodb:
+      uri: $env:MONGODB_URI = 'mongodb+srv://debugsbunny1648:gAMDnUwnwebV10HI@<cluster-host>/ecommerce_db?retryWrites=true&w=majority'
+      auto-index-creation: true
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+
+  mail:
+    host: ${SMTP_HOST:smtp.gmail.com}
+    port: ${SMTP_PORT:587}
+    username: ${SMTP_USERNAME:}
+    password: ${SMTP_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-this-super-secret-key-in-production-min-256-bits-long}
+    access-token-expiration-ms: 3600000        # 1 hour
+    refresh-token-expiration-ms: 604800000     # 7 days
+    issuer: ecommerce-platform
+
+  cors:
+    allowed-origins: "http://localhost:3000,http://localhost:3001,http://localhost:19006"
+
+  storage:
+    type: local        # local | s3 | cloudinary (abstraction, pluggable)
+    local:
+      base-path: ./uploads
+      base-url: /files
+    s3:
+      bucket: ${S3_BUCKET:}
+      region: ${S3_REGION:}
+
+  cache:
+    cms-ttl-seconds: 300
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+
+logging:
+  level:
+    root: INFO
+    com.ecommerce: DEBUG
+    org.springframework.data.mongodb.core.MongoTemplate: INFO

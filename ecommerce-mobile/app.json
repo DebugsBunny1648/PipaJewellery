@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Aurelia",
+    "slug": "aurelia-jewellery",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0F3D30"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.aurelia.jewellery" },
+    "android": {
+      "adaptiveIcon": { "foregroundImage": "./assets/adaptive-icon.png", "backgroundColor": "#0F3D30" },
+      "package": "com.aurelia.jewellery"
+    },
+    "extra": {
+      "apiBaseUrl": "http://localhost:8080/api"
+    }
+  }
+}

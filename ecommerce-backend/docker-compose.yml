@@ -1,0 +1,34 @@
+version: "3.8"
+
+# One-command local MongoDB for development:
+#   docker compose up -d
+# The backend's default application.yml already points at mongodb://localhost:27017/ecommerce_db,
+# so no further configuration is needed for local development.
+#
+# Includes mongo-express (a lightweight web UI) at http://localhost:8081
+# so you can inspect collections/documents without installing a Mongo GUI.
+services:
+  mongodb:
+    image: mongo:7
+    container_name: ecommerce-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  mongo-express:
+    image: mongo-express:1.0
+    container_name: ecommerce-mongo-express
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+
+volumes:
+  mongodb_data:

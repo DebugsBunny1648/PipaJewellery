@@ -1,0 +1,9 @@
+.account-layout { display: grid; grid-template-columns: 200px 1fr; gap: var(--space-5); padding: var(--space-5) 0 var(--space-7); }
+.account-nav { display: flex; flex-direction: column; gap: 0.3rem; }
+.account-nav a { padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); color: var(--color-ink-soft); font-weight: 500; }
+.account-nav a.is-active, .account-nav a:hover { background: var(--color-primary-tint); color: var(--color-primary-dark); }
+@media (max-width: 760px) { .account-layout { grid-template-columns: 1fr; } .account-nav { flex-direction: row; overflow-x: auto; } }
+
+.order-list { display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-3); }
+.order-list__item { display: flex; align-items: center; justify-content: space-between; padding: var(--space-3) var(--space-4); gap: var(--space-3); }
+.order-list__item p { color: var(--color-ink-soft); font-size: var(--text-sm); margin: 0.2rem 0 0; }
